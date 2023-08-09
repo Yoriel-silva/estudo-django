@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll yoriel</title>
+</head>
+<body>
+{% if latest_question_list %}
+     <ul>
+        {% for questions in latest_question_list %}
+            <li><a href="{% url 'polls:vote' questions.id %}">{{ questions.question_text }}</a></li>
+            {% endfor %}
+     </ul>
+{% else %}
+     <p>No polls are avaible</p>
+{% endif %}
+</body>
+</html>
